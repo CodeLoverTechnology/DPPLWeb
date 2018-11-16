@@ -1,0 +1,193 @@
+﻿@model DPPLWeb.DBModel.T_InvoiceInfo
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>T_InvoiceInfo</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.InvoiceNo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.InvoiceNo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.InvoiceDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.InvoiceDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Delivery_Location)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Delivery_Location)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LR_No)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LR_No)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cases)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cases)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Transport)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Transport)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DueDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DueDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SubTotal)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SubTotal)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Dis_Percent)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Dis_Percent)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IGST)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IGST)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FREIGHT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FREIGHT)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RoundOff)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RoundOff)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CR_DR_Note)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CR_DR_Note)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GrandTotal)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GrandTotal)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GrandTotal_InWord)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GrandTotal_InWord)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreatedBy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreatedBy)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreatedDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreatedDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ModifiedBy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ModifiedBy)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ModifiedDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ModifiedDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Active)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Active)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.M_PartyMaster.PartyName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.M_PartyMaster.PartyName)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

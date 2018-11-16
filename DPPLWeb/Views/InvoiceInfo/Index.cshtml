@@ -1,0 +1,154 @@
+﻿@model IEnumerable<DPPLWeb.DBModel.T_InvoiceInfo>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.InvoiceNo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.InvoiceDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Delivery_Location)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LR_No)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cases)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Transport)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DueDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SubTotal)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Dis_Percent)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IGST)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FREIGHT)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RoundOff)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CR_DR_Note)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GrandTotal)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GrandTotal_InWord)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CreatedBy)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CreatedDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ModifiedBy)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ModifiedDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Active)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.M_PartyMaster.PartyName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.InvoiceNo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.InvoiceDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Delivery_Location)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LR_No)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cases)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Transport)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DueDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SubTotal)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Dis_Percent)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IGST)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FREIGHT)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RoundOff)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CR_DR_Note)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GrandTotal)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GrandTotal_InWord)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreatedBy)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreatedDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ModifiedBy)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ModifiedDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Active)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.M_PartyMaster.PartyName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.InvoiceID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.InvoiceID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.InvoiceID })
+        </td>
+    </tr>
+}
+
+</table>

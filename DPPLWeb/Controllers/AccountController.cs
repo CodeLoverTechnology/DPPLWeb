@@ -79,7 +79,17 @@ namespace DPPLWeb.Controllers
             switch (result)
             {
                 case SignInStatus.Success:
-                    return RedirectToLocal(returnUrl);
+                    if(Resources.DPPLResources.SAdmin== model.Email)
+                    {
+                        Session["CurrentUser"] = Resources.DPPLResources.SAdmin;
+                        return RedirectToAction("Index", "Home", null);
+                    }
+                    else
+                    {
+                        Session["CurrentUser"] = model.Email;
+                        return RedirectToAction("Index", "Home", null);
+                    }
+                    //return RedirectToLocal(returnUrl);
                 case SignInStatus.LockedOut:
                     return View("Lockout");
                 case SignInStatus.RequiresVerification:

@@ -1,0 +1,148 @@
+﻿@model IEnumerable<DPPLWeb.DBModel.T_TransactionInfo>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.MFR)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Batch)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Exp)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HSN)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Qty)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Rate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Dis)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Free)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IGST)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Amount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Remarks)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CreatedBy)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CreatedDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ModifiedBy)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ModifiedDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Active)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.M_MasterTable.MasterValue)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.M_MasterTable1.MasterValue)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.M_ProductMaster.ProductCode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.T_InvoiceInfo.InvoiceNo)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.MFR)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Batch)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Exp)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HSN)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Qty)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Rate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Dis)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Free)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IGST)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Amount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Remarks)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreatedBy)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreatedDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ModifiedBy)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ModifiedDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Active)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.M_MasterTable.MasterValue)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.M_MasterTable1.MasterValue)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.M_ProductMaster.ProductCode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.T_InvoiceInfo.InvoiceNo)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.TransactionID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.TransactionID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.TransactionID })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,622 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="DPPL_DbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="M_CategoryMaster">
+          <Key>
+            <PropertyRef Name="CategoryID" />
+          </Key>
+          <Property Name="CategoryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CategoryName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="ModifiedBy" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="M_MasterTable">
+          <Key>
+            <PropertyRef Name="MasterID" />
+          </Key>
+          <Property Name="MasterID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MasterValue" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="TableName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="SequenceNo" Type="int" Nullable="false" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="ModifiedBy" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="M_PartyMaster">
+          <Key>
+            <PropertyRef Name="PartyID" />
+          </Key>
+          <Property Name="PartyID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PartyName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Address" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="PinCode" Type="int" Nullable="false" />
+          <Property Name="PhoneNo" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="EmailID" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Remarks" Type="nvarchar(max)" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="ModifiedBy" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="M_ProductMaster">
+          <Key>
+            <PropertyRef Name="ProductID" />
+          </Key>
+          <Property Name="ProductID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CategoryID" Type="int" Nullable="false" />
+          <Property Name="ProductCode" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="ProductName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="ProdDesc" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="MinQty" Type="int" Nullable="false" />
+          <Property Name="TotQty" Type="int" Nullable="false" />
+          <Property Name="Rate" Type="float" Nullable="false" />
+          <Property Name="SGST" Type="float" Nullable="false" />
+          <Property Name="CGST" Type="float" Nullable="false" />
+          <Property Name="IGST" Type="float" Nullable="false" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="ModifiedBY" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="T_InvoiceInfo">
+          <Key>
+            <PropertyRef Name="InvoiceID" />
+          </Key>
+          <Property Name="InvoiceID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="InvoiceNo" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="InvoiceDate" Type="datetime" Nullable="false" />
+          <Property Name="PartyID" Type="int" Nullable="false" />
+          <Property Name="Delivery_Location" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="LR_No" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Cases" Type="nvarchar" MaxLength="50" />
+          <Property Name="Transport" Type="nvarchar(max)" />
+          <Property Name="DueDate" Type="datetime" />
+          <Property Name="SubTotal" Type="float" />
+          <Property Name="Dis_Percent" Type="float" />
+          <Property Name="IGST" Type="float" />
+          <Property Name="FREIGHT" Type="float" />
+          <Property Name="RoundOff" Type="float" />
+          <Property Name="CR_DR_Note" Type="float" />
+          <Property Name="GrandTotal" Type="float" Nullable="false" />
+          <Property Name="GrandTotal_InWord" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="ModifiedBy" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="T_TransactionInfo">
+          <Key>
+            <PropertyRef Name="TransactionID" />
+          </Key>
+          <Property Name="TransactionID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProductID" Type="int" Nullable="false" />
+          <Property Name="TypeOfTransaction" Type="int" Nullable="false" />
+          <Property Name="InvoiceID" Type="int" Nullable="false" />
+          <Property Name="MFR" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Batch" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Exp" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="HSN" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Pack" Type="int" Nullable="false" />
+          <Property Name="Qty" Type="int" Nullable="false" />
+          <Property Name="Rate" Type="float" Nullable="false" />
+          <Property Name="Dis" Type="float" Nullable="false" />
+          <Property Name="Free" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="IGST" Type="float" Nullable="false" />
+          <Property Name="Amount" Type="float" Nullable="false" />
+          <Property Name="Remarks" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="ModifiedBy" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_M_ProductMaster_M_CategoryMaster">
+          <End Role="M_CategoryMaster" Type="Self.M_CategoryMaster" Multiplicity="1" />
+          <End Role="M_ProductMaster" Type="Self.M_ProductMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="M_CategoryMaster">
+              <PropertyRef Name="CategoryID" />
+            </Principal>
+            <Dependent Role="M_ProductMaster">
+              <PropertyRef Name="CategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_InvoiceInfo_M_PartyMaster">
+          <End Role="M_PartyMaster" Type="Self.M_PartyMaster" Multiplicity="1" />
+          <End Role="T_InvoiceInfo" Type="Self.T_InvoiceInfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="M_PartyMaster">
+              <PropertyRef Name="PartyID" />
+            </Principal>
+            <Dependent Role="T_InvoiceInfo">
+              <PropertyRef Name="PartyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_TransactionInfo_M_MasterTable">
+          <End Role="M_MasterTable" Type="Self.M_MasterTable" Multiplicity="1" />
+          <End Role="T_TransactionInfo" Type="Self.T_TransactionInfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="M_MasterTable">
+              <PropertyRef Name="MasterID" />
+            </Principal>
+            <Dependent Role="T_TransactionInfo">
+              <PropertyRef Name="Pack" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_TransactionInfo_M_MasterTable1">
+          <End Role="M_MasterTable" Type="Self.M_MasterTable" Multiplicity="1" />
+          <End Role="T_TransactionInfo" Type="Self.T_TransactionInfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="M_MasterTable">
+              <PropertyRef Name="MasterID" />
+            </Principal>
+            <Dependent Role="T_TransactionInfo">
+              <PropertyRef Name="TypeOfTransaction" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_TransactionInfo_M_ProductMaster">
+          <End Role="M_ProductMaster" Type="Self.M_ProductMaster" Multiplicity="1" />
+          <End Role="T_TransactionInfo" Type="Self.T_TransactionInfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="M_ProductMaster">
+              <PropertyRef Name="ProductID" />
+            </Principal>
+            <Dependent Role="T_TransactionInfo">
+              <PropertyRef Name="ProductID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_TransactionInfo_T_InvoiceInfo">
+          <End Role="T_InvoiceInfo" Type="Self.T_InvoiceInfo" Multiplicity="1" />
+          <End Role="T_TransactionInfo" Type="Self.T_TransactionInfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_InvoiceInfo">
+              <PropertyRef Name="InvoiceID" />
+            </Principal>
+            <Dependent Role="T_TransactionInfo">
+              <PropertyRef Name="InvoiceID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DPPL_DbModelStoreContainer">
+          <EntitySet Name="M_CategoryMaster" EntityType="Self.M_CategoryMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="M_MasterTable" EntityType="Self.M_MasterTable" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="M_PartyMaster" EntityType="Self.M_PartyMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="M_ProductMaster" EntityType="Self.M_ProductMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_InvoiceInfo" EntityType="Self.T_InvoiceInfo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_TransactionInfo" EntityType="Self.T_TransactionInfo" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_M_ProductMaster_M_CategoryMaster" Association="Self.FK_M_ProductMaster_M_CategoryMaster">
+            <End Role="M_CategoryMaster" EntitySet="M_CategoryMaster" />
+            <End Role="M_ProductMaster" EntitySet="M_ProductMaster" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_InvoiceInfo_M_PartyMaster" Association="Self.FK_T_InvoiceInfo_M_PartyMaster">
+            <End Role="M_PartyMaster" EntitySet="M_PartyMaster" />
+            <End Role="T_InvoiceInfo" EntitySet="T_InvoiceInfo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_TransactionInfo_M_MasterTable" Association="Self.FK_T_TransactionInfo_M_MasterTable">
+            <End Role="M_MasterTable" EntitySet="M_MasterTable" />
+            <End Role="T_TransactionInfo" EntitySet="T_TransactionInfo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_TransactionInfo_M_MasterTable1" Association="Self.FK_T_TransactionInfo_M_MasterTable1">
+            <End Role="M_MasterTable" EntitySet="M_MasterTable" />
+            <End Role="T_TransactionInfo" EntitySet="T_TransactionInfo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_TransactionInfo_M_ProductMaster" Association="Self.FK_T_TransactionInfo_M_ProductMaster">
+            <End Role="M_ProductMaster" EntitySet="M_ProductMaster" />
+            <End Role="T_TransactionInfo" EntitySet="T_TransactionInfo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_TransactionInfo_T_InvoiceInfo" Association="Self.FK_T_TransactionInfo_T_InvoiceInfo">
+            <End Role="T_InvoiceInfo" EntitySet="T_InvoiceInfo" />
+            <End Role="T_TransactionInfo" EntitySet="T_TransactionInfo" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DPPL_DbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="M_CategoryMaster">
+          <Key>
+            <PropertyRef Name="CategoryID" />
+          </Key>
+          <Property Name="CategoryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CategoryName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CreatedBy" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="M_ProductMaster" Relationship="Self.FK_M_ProductMaster_M_CategoryMaster" FromRole="M_CategoryMaster" ToRole="M_ProductMaster" />
+        </EntityType>
+        <EntityType Name="M_MasterTable">
+          <Key>
+            <PropertyRef Name="MasterID" />
+          </Key>
+          <Property Name="MasterID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MasterValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TableName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SequenceNo" Type="Int32" Nullable="false" />
+          <Property Name="CreatedBy" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="T_TransactionInfo" Relationship="Self.FK_T_TransactionInfo_M_MasterTable" FromRole="M_MasterTable" ToRole="T_TransactionInfo" />
+          <NavigationProperty Name="T_TransactionInfo1" Relationship="Self.FK_T_TransactionInfo_M_MasterTable1" FromRole="M_MasterTable" ToRole="T_TransactionInfo" />
+        </EntityType>
+        <EntityType Name="M_PartyMaster">
+          <Key>
+            <PropertyRef Name="PartyID" />
+          </Key>
+          <Property Name="PartyID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PartyName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PinCode" Type="Int32" Nullable="false" />
+          <Property Name="PhoneNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="EmailID" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Remarks" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedBy" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="T_InvoiceInfo" Relationship="Self.FK_T_InvoiceInfo_M_PartyMaster" FromRole="M_PartyMaster" ToRole="T_InvoiceInfo" />
+        </EntityType>
+        <EntityType Name="M_ProductMaster">
+          <Key>
+            <PropertyRef Name="ProductID" />
+          </Key>
+          <Property Name="ProductID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CategoryID" Type="Int32" Nullable="false" />
+          <Property Name="ProductCode" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ProductName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ProdDesc" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MinQty" Type="Int32" Nullable="false" />
+          <Property Name="TotQty" Type="Int32" Nullable="false" />
+          <Property Name="Rate" Type="Double" Nullable="false" />
+          <Property Name="SGST" Type="Double" Nullable="false" />
+          <Property Name="CGST" Type="Double" Nullable="false" />
+          <Property Name="IGST" Type="Double" Nullable="false" />
+          <Property Name="CreatedBy" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifiedBY" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="M_CategoryMaster" Relationship="Self.FK_M_ProductMaster_M_CategoryMaster" FromRole="M_ProductMaster" ToRole="M_CategoryMaster" />
+          <NavigationProperty Name="T_TransactionInfo" Relationship="Self.FK_T_TransactionInfo_M_ProductMaster" FromRole="M_ProductMaster" ToRole="T_TransactionInfo" />
+        </EntityType>
+        <EntityType Name="T_InvoiceInfo">
+          <Key>
+            <PropertyRef Name="InvoiceID" />
+          </Key>
+          <Property Name="InvoiceID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="InvoiceNo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="InvoiceDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="PartyID" Type="Int32" Nullable="false" />
+          <Property Name="Delivery_Location" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LR_No" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Cases" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Transport" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DueDate" Type="DateTime" Precision="3" />
+          <Property Name="SubTotal" Type="Double" />
+          <Property Name="Dis_Percent" Type="Double" />
+          <Property Name="IGST" Type="Double" />
+          <Property Name="FREIGHT" Type="Double" />
+          <Property Name="RoundOff" Type="Double" />
+          <Property Name="CR_DR_Note" Type="Double" />
+          <Property Name="GrandTotal" Type="Double" Nullable="false" />
+          <Property Name="GrandTotal_InWord" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CreatedBy" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="M_PartyMaster" Relationship="Self.FK_T_InvoiceInfo_M_PartyMaster" FromRole="T_InvoiceInfo" ToRole="M_PartyMaster" />
+          <NavigationProperty Name="T_TransactionInfo" Relationship="Self.FK_T_TransactionInfo_T_InvoiceInfo" FromRole="T_InvoiceInfo" ToRole="T_TransactionInfo" />
+        </EntityType>
+        <EntityType Name="T_TransactionInfo">
+          <Key>
+            <PropertyRef Name="TransactionID" />
+          </Key>
+          <Property Name="TransactionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProductID" Type="Int32" Nullable="false" />
+          <Property Name="TypeOfTransaction" Type="Int32" Nullable="false" />
+          <Property Name="InvoiceID" Type="Int32" Nullable="false" />
+          <Property Name="MFR" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Batch" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Exp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="HSN" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Pack" Type="Int32" Nullable="false" />
+          <Property Name="Qty" Type="Int32" Nullable="false" />
+          <Property Name="Rate" Type="Double" Nullable="false" />
+          <Property Name="Dis" Type="Double" Nullable="false" />
+          <Property Name="Free" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IGST" Type="Double" Nullable="false" />
+          <Property Name="Amount" Type="Double" Nullable="false" />
+          <Property Name="Remarks" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CreatedBy" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="M_MasterTable" Relationship="Self.FK_T_TransactionInfo_M_MasterTable" FromRole="T_TransactionInfo" ToRole="M_MasterTable" />
+          <NavigationProperty Name="M_MasterTable1" Relationship="Self.FK_T_TransactionInfo_M_MasterTable1" FromRole="T_TransactionInfo" ToRole="M_MasterTable" />
+          <NavigationProperty Name="M_ProductMaster" Relationship="Self.FK_T_TransactionInfo_M_ProductMaster" FromRole="T_TransactionInfo" ToRole="M_ProductMaster" />
+          <NavigationProperty Name="T_InvoiceInfo" Relationship="Self.FK_T_TransactionInfo_T_InvoiceInfo" FromRole="T_TransactionInfo" ToRole="T_InvoiceInfo" />
+        </EntityType>
+        <Association Name="FK_M_ProductMaster_M_CategoryMaster">
+          <End Role="M_CategoryMaster" Type="Self.M_CategoryMaster" Multiplicity="1" />
+          <End Role="M_ProductMaster" Type="Self.M_ProductMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="M_CategoryMaster">
+              <PropertyRef Name="CategoryID" />
+            </Principal>
+            <Dependent Role="M_ProductMaster">
+              <PropertyRef Name="CategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_TransactionInfo_M_MasterTable">
+          <End Role="M_MasterTable" Type="Self.M_MasterTable" Multiplicity="1" />
+          <End Role="T_TransactionInfo" Type="Self.T_TransactionInfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="M_MasterTable">
+              <PropertyRef Name="MasterID" />
+            </Principal>
+            <Dependent Role="T_TransactionInfo">
+              <PropertyRef Name="Pack" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_TransactionInfo_M_MasterTable1">
+          <End Role="M_MasterTable" Type="Self.M_MasterTable" Multiplicity="1" />
+          <End Role="T_TransactionInfo" Type="Self.T_TransactionInfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="M_MasterTable">
+              <PropertyRef Name="MasterID" />
+            </Principal>
+            <Dependent Role="T_TransactionInfo">
+              <PropertyRef Name="TypeOfTransaction" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_InvoiceInfo_M_PartyMaster">
+          <End Role="M_PartyMaster" Type="Self.M_PartyMaster" Multiplicity="1" />
+          <End Role="T_InvoiceInfo" Type="Self.T_InvoiceInfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="M_PartyMaster">
+              <PropertyRef Name="PartyID" />
+            </Principal>
+            <Dependent Role="T_InvoiceInfo">
+              <PropertyRef Name="PartyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_TransactionInfo_M_ProductMaster">
+          <End Role="M_ProductMaster" Type="Self.M_ProductMaster" Multiplicity="1" />
+          <End Role="T_TransactionInfo" Type="Self.T_TransactionInfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="M_ProductMaster">
+              <PropertyRef Name="ProductID" />
+            </Principal>
+            <Dependent Role="T_TransactionInfo">
+              <PropertyRef Name="ProductID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_TransactionInfo_T_InvoiceInfo">
+          <End Role="T_InvoiceInfo" Type="Self.T_InvoiceInfo" Multiplicity="1" />
+          <End Role="T_TransactionInfo" Type="Self.T_TransactionInfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_InvoiceInfo">
+              <PropertyRef Name="InvoiceID" />
+            </Principal>
+            <Dependent Role="T_TransactionInfo">
+              <PropertyRef Name="InvoiceID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DPPL_DbEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="M_CategoryMaster" EntityType="Self.M_CategoryMaster" />
+          <EntitySet Name="M_MasterTable" EntityType="Self.M_MasterTable" />
+          <EntitySet Name="M_PartyMaster" EntityType="Self.M_PartyMaster" />
+          <EntitySet Name="M_ProductMaster" EntityType="Self.M_ProductMaster" />
+          <EntitySet Name="T_InvoiceInfo" EntityType="Self.T_InvoiceInfo" />
+          <EntitySet Name="T_TransactionInfo" EntityType="Self.T_TransactionInfo" />
+          <AssociationSet Name="FK_M_ProductMaster_M_CategoryMaster" Association="Self.FK_M_ProductMaster_M_CategoryMaster">
+            <End Role="M_CategoryMaster" EntitySet="M_CategoryMaster" />
+            <End Role="M_ProductMaster" EntitySet="M_ProductMaster" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_TransactionInfo_M_MasterTable" Association="Self.FK_T_TransactionInfo_M_MasterTable">
+            <End Role="M_MasterTable" EntitySet="M_MasterTable" />
+            <End Role="T_TransactionInfo" EntitySet="T_TransactionInfo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_TransactionInfo_M_MasterTable1" Association="Self.FK_T_TransactionInfo_M_MasterTable1">
+            <End Role="M_MasterTable" EntitySet="M_MasterTable" />
+            <End Role="T_TransactionInfo" EntitySet="T_TransactionInfo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_InvoiceInfo_M_PartyMaster" Association="Self.FK_T_InvoiceInfo_M_PartyMaster">
+            <End Role="M_PartyMaster" EntitySet="M_PartyMaster" />
+            <End Role="T_InvoiceInfo" EntitySet="T_InvoiceInfo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_TransactionInfo_M_ProductMaster" Association="Self.FK_T_TransactionInfo_M_ProductMaster">
+            <End Role="M_ProductMaster" EntitySet="M_ProductMaster" />
+            <End Role="T_TransactionInfo" EntitySet="T_TransactionInfo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_TransactionInfo_T_InvoiceInfo" Association="Self.FK_T_TransactionInfo_T_InvoiceInfo">
+            <End Role="T_InvoiceInfo" EntitySet="T_InvoiceInfo" />
+            <End Role="T_TransactionInfo" EntitySet="T_TransactionInfo" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DPPL_DbModelStoreContainer" CdmEntityContainer="DPPL_DbEntities">
+          <EntitySetMapping Name="M_CategoryMaster">
+            <EntityTypeMapping TypeName="DPPL_DbModel.M_CategoryMaster">
+              <MappingFragment StoreEntitySet="M_CategoryMaster">
+                <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+                <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="M_MasterTable">
+            <EntityTypeMapping TypeName="DPPL_DbModel.M_MasterTable">
+              <MappingFragment StoreEntitySet="M_MasterTable">
+                <ScalarProperty Name="MasterID" ColumnName="MasterID" />
+                <ScalarProperty Name="MasterValue" ColumnName="MasterValue" />
+                <ScalarProperty Name="TableName" ColumnName="TableName" />
+                <ScalarProperty Name="SequenceNo" ColumnName="SequenceNo" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="M_PartyMaster">
+            <EntityTypeMapping TypeName="DPPL_DbModel.M_PartyMaster">
+              <MappingFragment StoreEntitySet="M_PartyMaster">
+                <ScalarProperty Name="PartyID" ColumnName="PartyID" />
+                <ScalarProperty Name="PartyName" ColumnName="PartyName" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="PinCode" ColumnName="PinCode" />
+                <ScalarProperty Name="PhoneNo" ColumnName="PhoneNo" />
+                <ScalarProperty Name="EmailID" ColumnName="EmailID" />
+                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="M_ProductMaster">
+            <EntityTypeMapping TypeName="DPPL_DbModel.M_ProductMaster">
+              <MappingFragment StoreEntitySet="M_ProductMaster">
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+                <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+                <ScalarProperty Name="ProductCode" ColumnName="ProductCode" />
+                <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+                <ScalarProperty Name="ProdDesc" ColumnName="ProdDesc" />
+                <ScalarProperty Name="MinQty" ColumnName="MinQty" />
+                <ScalarProperty Name="TotQty" ColumnName="TotQty" />
+                <ScalarProperty Name="Rate" ColumnName="Rate" />
+                <ScalarProperty Name="SGST" ColumnName="SGST" />
+                <ScalarProperty Name="CGST" ColumnName="CGST" />
+                <ScalarProperty Name="IGST" ColumnName="IGST" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="ModifiedBY" ColumnName="ModifiedBY" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_InvoiceInfo">
+            <EntityTypeMapping TypeName="DPPL_DbModel.T_InvoiceInfo">
+              <MappingFragment StoreEntitySet="T_InvoiceInfo">
+                <ScalarProperty Name="InvoiceID" ColumnName="InvoiceID" />
+                <ScalarProperty Name="InvoiceNo" ColumnName="InvoiceNo" />
+                <ScalarProperty Name="InvoiceDate" ColumnName="InvoiceDate" />
+                <ScalarProperty Name="PartyID" ColumnName="PartyID" />
+                <ScalarProperty Name="Delivery_Location" ColumnName="Delivery_Location" />
+                <ScalarProperty Name="LR_No" ColumnName="LR_No" />
+                <ScalarProperty Name="Cases" ColumnName="Cases" />
+                <ScalarProperty Name="Transport" ColumnName="Transport" />
+                <ScalarProperty Name="DueDate" ColumnName="DueDate" />
+                <ScalarProperty Name="SubTotal" ColumnName="SubTotal" />
+                <ScalarProperty Name="Dis_Percent" ColumnName="Dis_Percent" />
+                <ScalarProperty Name="IGST" ColumnName="IGST" />
+                <ScalarProperty Name="FREIGHT" ColumnName="FREIGHT" />
+                <ScalarProperty Name="RoundOff" ColumnName="RoundOff" />
+                <ScalarProperty Name="CR_DR_Note" ColumnName="CR_DR_Note" />
+                <ScalarProperty Name="GrandTotal" ColumnName="GrandTotal" />
+                <ScalarProperty Name="GrandTotal_InWord" ColumnName="GrandTotal_InWord" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_TransactionInfo">
+            <EntityTypeMapping TypeName="DPPL_DbModel.T_TransactionInfo">
+              <MappingFragment StoreEntitySet="T_TransactionInfo">
+                <ScalarProperty Name="TransactionID" ColumnName="TransactionID" />
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+                <ScalarProperty Name="TypeOfTransaction" ColumnName="TypeOfTransaction" />
+                <ScalarProperty Name="InvoiceID" ColumnName="InvoiceID" />
+                <ScalarProperty Name="MFR" ColumnName="MFR" />
+                <ScalarProperty Name="Batch" ColumnName="Batch" />
+                <ScalarProperty Name="Exp" ColumnName="Exp" />
+                <ScalarProperty Name="HSN" ColumnName="HSN" />
+                <ScalarProperty Name="Pack" ColumnName="Pack" />
+                <ScalarProperty Name="Qty" ColumnName="Qty" />
+                <ScalarProperty Name="Rate" ColumnName="Rate" />
+                <ScalarProperty Name="Dis" ColumnName="Dis" />
+                <ScalarProperty Name="Free" ColumnName="Free" />
+                <ScalarProperty Name="IGST" ColumnName="IGST" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

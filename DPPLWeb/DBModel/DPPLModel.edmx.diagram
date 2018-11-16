@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="bcb0d26056df4c3a839ee56133032ead" Name="Diagram1">
+        <EntityTypeShape EntityType="DPPL_DbModel.M_CategoryMaster" Width="1.5" PointX="1.5" PointY="15.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DPPL_DbModel.M_MasterTable" Width="1.5" PointX="0.75" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DPPL_DbModel.M_PartyMaster" Width="1.5" PointX="1.5" PointY="26.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DPPL_DbModel.M_ProductMaster" Width="1.5" PointX="0.75" PointY="9.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DPPL_DbModel.T_InvoiceInfo" Width="1.5" PointX="0.75" PointY="19.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DPPL_DbModel.T_TransactionInfo" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
+        <AssociationConnector Association="DPPL_DbModel.FK_M_ProductMaster_M_CategoryMaster" ManuallyRouted="false" />
+        <AssociationConnector Association="DPPL_DbModel.FK_T_TransactionInfo_M_MasterTable" ManuallyRouted="false" />
+        <AssociationConnector Association="DPPL_DbModel.FK_T_TransactionInfo_M_MasterTable1" ManuallyRouted="false" />
+        <AssociationConnector Association="DPPL_DbModel.FK_T_InvoiceInfo_M_PartyMaster" ManuallyRouted="false" />
+        <AssociationConnector Association="DPPL_DbModel.FK_T_TransactionInfo_M_ProductMaster" ManuallyRouted="false" />
+        <AssociationConnector Association="DPPL_DbModel.FK_T_TransactionInfo_T_InvoiceInfo" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
